@@ -1,9 +1,9 @@
 //array of workday hours
 var hours = ["9am", "10am", "11am", "12pm", "1pm", "2pm", "3pm", "4pm", "5pm"];
-var commentInput = document.querySelector("#comment.hours[i]")
-var userInputSpan = document.querySelector("#hours[i]")
+// var commentInput = document.querySelector("#comment.hours[i]")
+// var userInputSpan = document.querySelector("#hours[i]")
 
-
+displayComment()
 // var emailInput = document.querySelector("#email");
 // var passwordInput = document.querySelector("#password");
 // var signUpButton = document.querySelector("#sign-up");
@@ -11,11 +11,31 @@ var userInputSpan = document.querySelector("#hours[i]")
 // var userEmailSpan = document.querySelector("#user-email");
 // var userPasswordSpan = document.querySelector("#user-password");
 
+$(".saveBtn").on("click",function(){
+    console.log(this)
+    //console.log(
+        var lsKey =$(this).parent().parent().children("textarea").attr("id")
+       // )
+    //console.log(
+        var lsValue=$(this).parent().parent().children("textarea").val()
+        //)
+    localStorage.setItem(lsKey, lsValue)
+})
 
 // renderLastRegistered();
 function displayComment(type, comment){
-    for (i=0; i < hours.length; i++)
-    container.comment = comment.hours[i]
+    for (var i=0; i < hours.length; i++){
+        console.log(hours[i])
+        var returnX = localStorage.getItem(`comment${hours[i]}`)//template literal
+        console.log(returnX)
+        //put it on the page
+
+        var customId = `#comment${hours[i]}`
+        console.log(
+            $(customId)
+        )
+    }
+    //container.comment = comment.hours[i]
 }
 // LOCAL STORAGE
 
@@ -35,6 +55,9 @@ function displayComment(type, comment){
 //   userEmailSpan.textContent = email;
 //   userPasswordSpan.textContent = password;
 // }
+//textButton.addEventListener("click", function(event){
+    //event.preventDefault();
+//})
 
 // signUpButton.addEventListener("click", function(event) {
 //   event.preventDefault();
