@@ -16,7 +16,7 @@ $(".saveBtn").on("click",function(){
     localStorage.setItem(lsKey, lsValue)
 })
 
-// display comment
+// display comments
 function displayComment(type, comment){
     for (var i=0; i < hours.length; i++){
         console.log(hours[i])
